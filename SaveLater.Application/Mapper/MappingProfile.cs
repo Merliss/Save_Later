@@ -16,6 +16,9 @@ namespace SaveLater.Application.Mapper
         {
            CreateMap<Post,PostInListViewModel>()
                 .ReverseMap();
+           CreateMap<Post,PostDetalViewModel>() 
+                .ReverseMap();
+            CreateMap<Category, CategoryDto>();
         }
     }
 }
