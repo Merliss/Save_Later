@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SaveLater.Application.Functions.Posts
 {
-    public class PostDetalViewModel
+    public class PostDetailViewModel
     {
         public int Id { get; set; }
         public string Title { get; set; }

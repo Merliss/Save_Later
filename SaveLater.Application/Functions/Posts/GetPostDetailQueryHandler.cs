@@ -10,7 +10,7 @@ using SaveLater.Domain.Entities;
 
 namespace SaveLater.Application.Functions.Posts
 {
-    public class GetPostDetailQueryHandler : IRequestHandler<GetPostDetailQuery, PostDetalViewModel>
+    public class GetPostDetailQueryHandler : IRequestHandler<GetPostDetailQuery, PostDetailViewModel>
     {
         private readonly IAsyncRepository<Post> _postRepository;
         private readonly IAsyncRepository<Category> _categoryRepository;
@@ -23,13 +23,13 @@ namespace SaveLater.Application.Functions.Posts
             _mapper = mapper;
         }
 
-        public async Task<PostDetalViewModel> Handle(GetPostDetailQuery request, CancellationToken cancellationToken)
+        public async Task<PostDetailViewModel> Handle(GetPostDetailQuery request, CancellationToken cancellationToken)
         {
             var post = await _postRepository.GetByIdAsync(request.Id);
-            var postdetail = _mapper.Map<PostDetalViewModel>(post);
+            var postdetail = _mapper.Map<PostDetailViewModel>(post);
 
             var category = await _categoryRepository.GetByIdAsync(post.CategoryId);
-
+            
             postdetail.Category = _mapper.Map<CategoryDto>(category);
 
             return postdetail;

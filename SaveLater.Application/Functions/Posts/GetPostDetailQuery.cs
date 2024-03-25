@@ -7,7 +7,7 @@ using MediatR;
 
 namespace SaveLater.Application.Functions.Posts
 {
-    public class GetPostDetailQuery : IRequest<PostDetalViewModel>
+    public class GetPostDetailQuery : IRequest<PostDetailViewModel>
     {
         public int Id { get; set; }
     }
