@@ -8,7 +8,7 @@ using MediatR;
 using SaveLater.Application.Contracts.Persistence;
 using SaveLater.Domain.Entities;
 
-namespace SaveLater.Application.Functions.Posts
+namespace SaveLater.Application.Functions.Posts.Queries.GetPostDetail
 {
     public class GetPostDetailQueryHandler : IRequestHandler<GetPostDetailQuery, PostDetailViewModel>
     {
@@ -29,7 +29,7 @@ namespace SaveLater.Application.Functions.Posts
             var postdetail = _mapper.Map<PostDetailViewModel>(post);
 
             var category = await _categoryRepository.GetByIdAsync(post.CategoryId);
-            
+
             postdetail.Category = _mapper.Map<CategoryDto>(category);
 
             return postdetail;

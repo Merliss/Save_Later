@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SaveLater.Application.Functions.Posts
+namespace SaveLater.Application.Functions.Posts.Queries.GetPostsList
 {
     public class PostInListViewModel
     {

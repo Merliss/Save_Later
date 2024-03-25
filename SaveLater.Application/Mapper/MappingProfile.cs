@@ -5,7 +5,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
-using SaveLater.Application.Functions.Posts;
+using SaveLater.Application.Functions.Posts.Queries.GetPostDetail;
+using SaveLater.Application.Functions.Posts.Queries.GetPostsList;
 using SaveLater.Domain.Entities;
 
 namespace SaveLater.Application.Mapper

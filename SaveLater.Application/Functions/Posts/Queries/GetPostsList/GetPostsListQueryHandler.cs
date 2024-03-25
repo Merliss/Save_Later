@@ -8,14 +8,14 @@ using MediatR;
 using SaveLater.Application.Contracts.Persistence;
 using SaveLater.Domain.Entities;
 
-namespace SaveLater.Application.Functions.Posts
+namespace SaveLater.Application.Functions.Posts.Queries.GetPostsList
 {
     public class GetPostsListQueryHandler : IRequestHandler<GetPostsListQuery, List<PostInListViewModel>>
     {
         private readonly IAsyncRepository<Post> _postRepository;
         private readonly IMapper _mapper;
 
-        public GetPostsListQueryHandler (IMapper mapper, IAsyncRepository<Post> postRepository)
+        public GetPostsListQueryHandler(IMapper mapper, IAsyncRepository<Post> postRepository)
         {
             _mapper = mapper;
             _postRepository = postRepository;
