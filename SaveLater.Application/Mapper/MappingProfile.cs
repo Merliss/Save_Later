@@ -8,6 +8,7 @@ using AutoMapper;
 using SaveLater.Application.Functions.Categories.Queries;
 using SaveLater.Application.Functions.Categories.Queries.GetCategoryListWithPosts;
 using SaveLater.Application.Functions.Posts.Commands.CreatePost;
+using SaveLater.Application.Functions.Posts.Commands.UpdatePost;
 using SaveLater.Application.Functions.Posts.Queries.GetPostDetail;
 using SaveLater.Application.Functions.Posts.Queries.GetPostsList;
 using SaveLater.Domain.Entities;
@@ -29,6 +30,7 @@ namespace SaveLater.Application.Mapper
             CreateMap<Category, CategoryPostListViewModel>();
 
             CreateMap<Post,CreatePostCommand>().ReverseMap();
+            CreateMap<Post, UpdatePostCommand>().ReverseMap();
         }
     }
 }
