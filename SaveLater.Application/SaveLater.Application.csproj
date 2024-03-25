@@ -15,4 +15,11 @@
     <ProjectReference Include="..\SaveLater.Domain\SaveLater.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\Categories\Commands\" />
+    <Folder Include="Functions\Events\Commands\" />
+    <Folder Include="Functions\Events\Queries\" />
+    <Folder Include="Functions\Posts\Commands\" />
+  </ItemGroup>
+
 </Project>
