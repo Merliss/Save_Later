@@ -8,6 +8,8 @@ using AutoMapper;
 using SaveLater.Application.Functions.Categories.Commands;
 using SaveLater.Application.Functions.Categories.Queries;
 using SaveLater.Application.Functions.Categories.Queries.GetCategoryListWithPosts;
+using SaveLater.Application.Functions.Events.Commands.UpdateEvent;
+using SaveLater.Application.Functions.Events.Queries.GetEvent;
 using SaveLater.Application.Functions.Events.Queries.GetEventListByDate;
 using SaveLater.Application.Functions.Posts.Commands.CreatePost;
 using SaveLater.Application.Functions.Posts.Commands.DeletePost;
@@ -42,6 +44,9 @@ namespace SaveLater.Application.Mapper
             CreateMap<Event,EventsByDateViewModel>().ReverseMap();
 
             CreateMap<Event, CreateCategoryCommand>().ReverseMap();
+            CreateMap<Event, EventViewModel>().ReverseMap();
+
+            CreateMap<Event, UpdateEventCommand>().ReverseMap();
 
 
         }
