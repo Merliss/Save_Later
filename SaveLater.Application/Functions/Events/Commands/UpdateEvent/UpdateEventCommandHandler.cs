@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using MediatR;
 using SaveLater.Application.Contracts.Persistence;
+using SaveLater.Domain.Entities;
 
 namespace SaveLater.Application.Functions.Events.Commands.UpdateEvent
 {
@@ -21,7 +22,8 @@ namespace SaveLater.Application.Functions.Events.Commands.UpdateEvent
         }
         public async Task<Unit> Handle(UpdateEventCommand request, CancellationToken cancellationToken)
         {
-            var eventToUpdate = await _eventsRepository.GetByIdAsync(request.Id);
+            var eventToUpdate = _mapper.Map<Event>(request);
+
             await _eventsRepository.UpdateAsync(eventToUpdate);
 
             return Unit.Value;
