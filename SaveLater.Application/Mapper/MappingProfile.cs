@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using SaveLater.Application.Functions.Categories.Commands;
 using SaveLater.Application.Functions.Categories.Queries;
 using SaveLater.Application.Functions.Categories.Queries.GetCategoryListWithPosts;
 using SaveLater.Application.Functions.Posts.Commands.CreatePost;
@@ -33,6 +34,9 @@ namespace SaveLater.Application.Mapper
             CreateMap<Post,CreatePostCommand>().ReverseMap();
             CreateMap<Post, UpdatePostCommand>().ReverseMap();
             CreateMap<Post, DeletePostCommand>().ReverseMap();
+
+
+            CreateMap<Category,CreateCategoryCommand>().ReverseMap();
         }
     }
 }
