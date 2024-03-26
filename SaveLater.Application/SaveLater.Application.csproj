@@ -8,18 +8,13 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.9.0" />
     <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SaveLater.Domain\SaveLater.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Functions\Categories\Commands\" />
-    <Folder Include="Functions\Events\Commands\" />
-    <Folder Include="Functions\Events\Queries\" />
-    <Folder Include="Functions\Posts\Commands\" />
   </ItemGroup>
 
 </Project>
