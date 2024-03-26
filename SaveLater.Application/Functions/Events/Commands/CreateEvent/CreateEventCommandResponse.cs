@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentValidation.Results;
 using SaveLater.Application.Responses;
 
-namespace SaveLater.Application.Functions.Events.Commands
+namespace SaveLater.Application.Functions.Events.Commands.CreateEvent
 {
     public class CreateEventCommandResponse : BaseResponse
     {
@@ -14,9 +14,9 @@ namespace SaveLater.Application.Functions.Events.Commands
 
         public CreateEventCommandResponse() : base()
         {
-            
-        } 
-    
+
+        }
+
 
         public CreateEventCommandResponse(string message) : base(message)
         {

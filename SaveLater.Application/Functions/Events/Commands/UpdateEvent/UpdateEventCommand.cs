@@ -5,25 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using MediatR;
 
-namespace SaveLater.Application.Functions.Events.Commands
+namespace SaveLater.Application.Functions.Events.Commands.UpdateEvent
 {
-    public class CreateEventCommand : IRequest<CreateEventCommandResponse>
+    public class UpdateEventCommand : IRequest<Unit>
     {
         public int Id { get; set; }
-        
         public string Title { get; set; }
-        
         public string Description { get; set; }
+
         public string ImageUrl { get; set; }
-
         public string FacebookEventUrl { get; set; }
-
         public string SlidesUrl { get; set; }
+
         public string WatchFacebookLink { get; set; }
-        public string WatchYoutubeLink { get; set; }
-        public DateTime Date {  get; set; }
+        public string WatchYoutbeLink { get; set; }
 
+        public DateTime Date { get; set; }
         public bool AlreadyHappend { get; set; }
-
     }
 }

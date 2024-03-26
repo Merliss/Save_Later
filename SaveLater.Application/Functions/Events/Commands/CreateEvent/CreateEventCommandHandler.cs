@@ -8,9 +8,9 @@ using MediatR;
 using SaveLater.Application.Contracts.Persistence;
 using SaveLater.Domain.Entities;
 
-namespace SaveLater.Application.Functions.Events.Commands
+namespace SaveLater.Application.Functions.Events.Commands.CreateEvent
 {
-    public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand,CreateEventCommandResponse>
+    public class CreateEventCommandHandler : IRequestHandler<CreateEventCommand, CreateEventCommandResponse>
     {
         private readonly IEventsRepository _eventsRepository;
         private readonly IMapper _mapper;
