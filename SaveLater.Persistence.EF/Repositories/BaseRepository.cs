@@ -10,7 +10,7 @@ namespace SaveLater.Persistence.EF.Repositories
 {
     public class BaseRepository<T> : IAsyncRepository<T> where T : class
     {
-        private readonly SaveLaterContext _dbContext;
+        protected readonly SaveLaterContext _dbContext;
         public BaseRepository(SaveLaterContext dbContext)
         {
             _dbContext = dbContext;
