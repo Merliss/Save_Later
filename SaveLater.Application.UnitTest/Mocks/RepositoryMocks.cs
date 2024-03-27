@@ -345,57 +345,57 @@ Zazwyczaj w tym cyklu pokazuje programy, z które moim bardzo zmieniają przepł
             return p;
         }
 
-        public static Mock<IEventsRepository> GetWebinarRepository()
+        public static Mock<IEventsRepository> GetEventRepository()
         {
-            var webinars = GetWebinars();
-            var mockWebinarRepository = new Mock<IEventsRepository>();
+            var events = GetEvents();
+            var mockEventRepository = new Mock<IEventsRepository>();
 
-            mockWebinarRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(webinars);
+            mockEventRepository.Setup(repo => repo.GetAllAsync()).ReturnsAsync(events);
 
-            mockWebinarRepository.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(
+            mockEventRepository.Setup(repo => repo.GetByIdAsync(It.IsAny<int>())).ReturnsAsync(
             (int id) =>
             {
-                var pos = webinars.FirstOrDefault(c => c.Id == id);
+                var pos = events.FirstOrDefault(c => c.Id == id);
                 return pos;
             });
 
-            mockWebinarRepository.Setup(repo => repo.AddAsync(It.IsAny<Event>())).ReturnsAsync(
-            (Event webinar) =>
+            mockEventRepository.Setup(repo => repo.AddAsync(It.IsAny<Event>())).ReturnsAsync(
+            (Event singleEvent) =>
             {
-                webinars.Add(webinar);
-                return webinar;
+                events.Add(singleEvent);
+                return singleEvent;
             });
 
-            mockWebinarRepository.Setup(repo => repo.DeleteAsync(It.IsAny<Event>())).Callback
-                <Event>((entity) => webinars.Remove(entity));
+            mockEventRepository.Setup(repo => repo.DeleteAsync(It.IsAny<Event>())).Callback
+                <Event>((entity) => events.Remove(entity));
 
-            mockWebinarRepository.Setup(repo => repo.UpdateAsync(It.IsAny<Event>())).Callback
-                <Event>((entity) => { webinars.Remove(entity); webinars.Add(entity); });
+            mockEventRepository.Setup(repo => repo.UpdateAsync(It.IsAny<Event>())).Callback
+                <Event>((entity) => { events.Remove(entity); events.Add(entity); });
 
-            mockWebinarRepository.Setup(repo => repo.GetPagedEventsForDate
+            mockEventRepository.Setup(repo => repo.GetPagedEventsForDate
             (It.IsAny<SearchEventsOptions>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<DateTime?>()))
             .ReturnsAsync((DateTime date, int page, int pageSize) =>
             {
-                var matches = webinars.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year)
+                var matches = events.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year)
                 .Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
                 return matches;
             });
 
-            mockWebinarRepository.Setup(repo => repo.GetTotalCountOfEventsForDate
+            mockEventRepository.Setup(repo => repo.GetTotalCountOfEventsForDate
             (It.IsAny<SearchEventsOptions>(), It.IsAny<DateTime?>()))
             .ReturnsAsync((DateTime date) =>
             {
-                var matches = webinars.Count
+                var matches = events.Count
                 (x => x.Date.Month == date.Month && x.Date.Year == date.Year);
 
                 return matches;
             });
 
-            return mockWebinarRepository;
+            return mockEventRepository;
         }
 
-        public static List<Event> GetWebinars()
+        public static List<Event> GetEvents()
         {
             List<Event> w = new List<Event>();
 
