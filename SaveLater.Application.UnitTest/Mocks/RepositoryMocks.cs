@@ -374,7 +374,7 @@ Zazwyczaj w tym cyklu pokazuje programy, z które moim bardzo zmieniają przepł
 
             mockEventRepository.Setup(repo => repo.GetPagedEventsForDate
             (It.IsAny<SearchEventsOptions>(), It.IsAny<int>(), It.IsAny<int>(), It.IsAny<DateTime?>()))
-            .ReturnsAsync((DateTime date, int page, int pageSize) =>
+            .ReturnsAsync((SearchEventsOptions so, DateTime date, int page, int pageSize) =>
             {
                 var matches = events.Where(x => x.Date.Month == date.Month && x.Date.Year == date.Year)
                 .Skip((page - 1) * pageSize).Take(pageSize).ToList();
@@ -384,7 +384,7 @@ Zazwyczaj w tym cyklu pokazuje programy, z które moim bardzo zmieniają przepł
 
             mockEventRepository.Setup(repo => repo.GetTotalCountOfEventsForDate
             (It.IsAny<SearchEventsOptions>(), It.IsAny<DateTime?>()))
-            .ReturnsAsync((DateTime date) =>
+            .ReturnsAsync((SearchEventsOptions so, DateTime date) =>
             {
                 var matches = events.Count
                 (x => x.Date.Month == date.Month && x.Date.Year == date.Year);
