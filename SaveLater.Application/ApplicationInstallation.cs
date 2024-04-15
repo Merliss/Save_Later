@@ -12,7 +12,7 @@ namespace SaveLater.Application
 {
     public static class ApplicationInstallation
     {
-        public static IServiceCollection SaveLaterApplication(this IServiceCollection services)
+        public static IServiceCollection AddSaveLaterApplication(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

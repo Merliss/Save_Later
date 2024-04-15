@@ -13,7 +13,7 @@ namespace SaveLater.Persistence.EF
 {
     public static class PersistenceWithEFRegistration
     {
-        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddSaveLaterPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<SaveLaterContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("SaveLaterConnectionString")));
